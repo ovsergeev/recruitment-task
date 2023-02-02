@@ -5,6 +5,21 @@
   flex-direction: column;
 }
 
-main {
+.footer,
+.header {
+  width: 100%;
+  min-height: 50px;
+}
+
+.header {
+  background-color: red;
+}
+
+.footer {
+  background-color: green;
+}
+
+.main {
   flex: 1 1 auto;
+  overflow: scroll;
 }

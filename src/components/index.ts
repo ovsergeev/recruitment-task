@@ -1,2 +1,2 @@
-export * from './rectangle';
-export * from './element-c';
+export * from './element-b';
+export * from './table';
