@@ -1,25 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { RefObject, useRef } from 'react';
+import { ElementC, Rectangle } from './components';
+import { MainLayout } from './layout';
 
 function App() {
+  const r = useRef(null);
+  const cl = () => {
+    const element = r as RefObject<HTMLElement>;
+    console.log('CLCLCLCL => ', element.current?.getBoundingClientRect());
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MainLayout>
+      App page
+      <div className="c-wrapper">
+        <ElementC />
+      </div>
+      {/* <Rectangle
+        ref={r}
+        color="green"
+        width="60%"
+        height="40%"
+        data-test="ddddd-tttt"
+        onClick={cl}
+      >
+        RECTANGLE 1
+      </Rectangle>
+      <Rectangle
+        tag="h1"
+        color="green"
+        width="60%"
+        height="40%"
+        onClick={() => console.log('CLICKED REACTQANGLE')}
+      >
+        RECTANGLE 2
+      </Rectangle> */}
+    </MainLayout>
   );
 }
 

@@ -1,0 +1,16 @@
+.container {
+  position: relative;
+  width: 50%;
+}
+
+.box {
+  position: absolute;
+  background-color: red;
+  transition: all 8s ease-in-out;
+  right: calc(100% - 100px);
+}
+
+.box:hover {
+  right: 0;
+  cursor: pointer;
+}
