@@ -1,11 +1,8 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useContext, useState } from 'react';
+import { TableContext } from '../../context';
 
-interface IFromRowProps {
-  disabled: boolean;
-  onAdd: (name: string, surname: string) => boolean;
-}
-
-export const FormRow: React.FC<IFromRowProps> = ({ disabled, onAdd }) => {
+export const FormRow: React.FC = () => {
+  const { employeeAddHandler, isLimitReached } = useContext(TableContext);
   const [name, setName] = useState<string>('');
   const [surname, setSurname] = useState<string>('');
 
@@ -15,7 +12,7 @@ export const FormRow: React.FC<IFromRowProps> = ({ disabled, onAdd }) => {
     const _name = name.trim();
     const _surname = surname.trim();
 
-    const isAdded = onAdd(_name, _surname);
+    const isAdded = employeeAddHandler(_name, _surname);
 
     if (isAdded) {
       setName('');
@@ -53,7 +50,7 @@ export const FormRow: React.FC<IFromRowProps> = ({ disabled, onAdd }) => {
         </div>
 
         <span>
-          <button disabled={disabled} type="submit">
+          <button disabled={isLimitReached} type="submit">
             Add
           </button>
         </span>

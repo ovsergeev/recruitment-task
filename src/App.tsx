@@ -1,4 +1,5 @@
 import { ElementB, Table } from './components';
+import { TableContextProvider } from './context';
 import { MainLayout } from './layout';
 
 function App() {
@@ -6,7 +7,9 @@ function App() {
     <MainLayout>
       <ElementB />
       <hr />
-      <Table />
+      <TableContextProvider>
+        <Table />
+      </TableContextProvider>
     </MainLayout>
   );
 }
